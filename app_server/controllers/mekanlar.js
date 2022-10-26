@@ -3,7 +3,7 @@ var router = express.Router();
 
 const anaSayfa = function (req, res) {
   res.render("anasayfa", {
-    "baslik": "Ana Sayfa",
+    "baslik": "Barış Enginbağ",
     "sayfaBaslik": {
       "siteAd": "MekanBul",
       "slogan": "Civardaki Mekanları Keşfet!",
@@ -38,8 +38,8 @@ const mekanBilgisi = function (req, res) {
         "puan": "4",
         "imkanlar": ["Dünya Kahveleri", "Kekler", "Pastalar"],
         "koordinatlar": {
-            "enlem": "37.7",
-            "boylam": "30.5"
+          "enlem": "41.077773",
+          "boylam": "29.043897"
         },
         "saatler": [
             {
@@ -59,9 +59,15 @@ const mekanBilgisi = function (req, res) {
                 "puan": "4",
                 "tarih": "20 Ekim 2022",
                 "yorumMetni": "Kahveler iyi."
-            }
+            },
+          {
+            "yorumYapan": "Can Donat",
+            "yorumMetni": "çalışanlar çok ilgili",
+            "tarih": "21 Ekim 2022",
+            "puan": "5"
+          }
         ]
-    }
+      }
 
  });
 };
