@@ -1,70 +1,24 @@
 extends layout
-
+include fonksiyonlar/yildiz
 block content
-    #banner.page-header 
-        .row 
-            .col-lg-6 
-                h1  
-                    | Mekanbul
-                    small &nbsp; Civardaki mekanları keşfet! 
-    .row 
-        .row.list-group
-        .col-xs-12.col-sm-12 
-        .row.list-group
-            .col-xs-12.list-group-item 
-                h4 
-                    a(href='/mekan') Bebek Starbucks
-                    small &nbsp;
-                    span.glyphicon.glyphicon-star
-                    span.glyphicon.glyphicon-star
-                    span.glyphicon.glyphicon-star
-                    span.glyphicon.glyphicon-star
-                    span.glyphicon.glyphicon-star-empty 
-                span.badge.pull-right.badge-default 571km    
-                p.address Beşiktaş/İstanbul
-                p
-                    span.label.label-warning Kahve molası
-                    | &nbsp;
-                    span.label.label-warning Kahve
-
-                       .row 
-        .row.list-group
-        .col-xs-12.col-sm-12 
-        .row.list-group
-            .col-xs-12.list-group-item 
-                h4 
-                    a(href='/mekan') Nakkaştepe 
-                    small &nbsp;
-                    span.glyphicon.glyphicon-star
-                    span.glyphicon.glyphicon-star
-                    span.glyphicon.glyphicon-star
-                    span.glyphicon.glyphicon-star
-                    span.glyphicon.glyphicon-star 
-                span.badge.pull-right.badge-default 570km    
-                p.address Üsküdar/İstanbul
-                p
-                    span.label.label-warning Seyehat-gezme 
-                    | &nbsp;
-                    span.label.label-warning Temiz Hava
-
-                              .row 
-        .row.list-group
-        .col-xs-12.col-sm-12 
-        .row.list-group
-            .col-xs-12.list-group-item 
-                h4 
-                    a(href='/mekan') İstiklal Caddesi
-                    small &nbsp;
-                    span.glyphicon.glyphicon-star
-                    span.glyphicon.glyphicon-star
-                    span.glyphicon.glyphicon-star
-                    span.glyphicon.glyphicon-star
-                    span.glyphicon.glyphicon-star 
-                span.badge.pull-right.badge-default 573km    
-                p.address Beyoğlu/istanbul
-                p
-                    span.label.label-warning Seyehat-gezme 
-                    | &nbsp;
-                    span.label.label-warning Kalabalık
-
-
+  #banner.page-header 
+    .row
+      .col-lg-6 
+        h1 
+          | #{sayfaBaslik.siteAd}
+          small &nbsp; #{sayfaBaslik.slogan}
+  .row
+    each mekan in mekanlar
+      .row.list-group 
+      .col-xs-12.col-sm-12
+        .col-xs-12.list-group-item
+          h4 
+            a(href="/mekan") #{mekan.ad}
+            small &nbsp;
+            +puanOlustur(mekan.puan)
+          span.badge.pull-right.badge-default 1km 
+          p.address #{mekan.adres} 
+          p 
+            each imkan in mekan.imkanlar
+              span.label.label-warning= imkan
+              | &nbsp;
